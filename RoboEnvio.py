@@ -17,9 +17,9 @@ print('Iniciado envio')
 planilha = pd.read_excel("Envio.xlsx")  
 
 
-nomePessoa = planilha['NOME']
-destino = planilha['E-MAIL*']
-anexo = planilha['NOME_ANEXO+EXTENSÃO*']
+nomePessoa = planilha['NOME'] [x]
+destino = planilha['E-MAIL*'] [x]
+anexo = planilha['NOME_ANEXO+EXTENSÃO*'] [x]
 
 host = "smtp.gmail.com"
 port = "587"
@@ -54,7 +54,10 @@ encoders.encode_base64(att)
 #Declarando header do anexo
 att.add_header('Content-Disposition', f'attachment; filename= {anexo}')
 attachment.close()
+
+#Anexando no e-mail
 email_msg.attach(att)
+
 
 #Enviando e-mail
 server.sendmail(email_msg['From'],email_msg['To'],email_msg.as_string())
