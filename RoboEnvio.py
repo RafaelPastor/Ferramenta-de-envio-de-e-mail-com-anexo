@@ -19,6 +19,7 @@ planilha = pd.read_excel("Envio.xlsx")
 
 nomePessoa = planilha['NOME']
 destino = planilha['E-MAIL*']
+anexo = planilha['NOME_ANEXO+EXTENSÃO*']
 
 host = "smtp.gmail.com"
 port = "587"
