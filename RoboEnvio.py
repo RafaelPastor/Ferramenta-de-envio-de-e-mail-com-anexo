@@ -8,7 +8,7 @@ import pandas as pd
 from email import encoders
 
 
-x = int(input('Insira o numero da celula a ser enviada: '))
+x = int(input('Ultima celula preenchida a ser enviada: '))
 
 print()
 print('Iniciado envio')
@@ -41,6 +41,22 @@ email_msg['To'] = destino
 email_msg['Subject'] = "Assunto"
 email_msg.attach(MIMEText(corpo,'html'))
 
+#Localizando anexo
+cam_arquivo = f'Anexos\\{anexo}'
+#Lendo em binário
+attachment = open(cam_arquivo, 'rb')
+#Codificando em base64
+att = MIMEBase('applicatio', 'octet-stream')
+att.set_payload(attachment.read())
+encoders.encode_base64(att)
+
+#Declarando header do anexo
+att.add_header('Content-Disposition', f'attachment; filename= {anexo}')
+attachment.close()
+email_msg.attach(att)
+
+#Enviando e-mail
+server.sendmail(email_msg['From'],email_msg['To'],email_msg.as_string())
 
 #Fechando o servidor
 server.quit()
