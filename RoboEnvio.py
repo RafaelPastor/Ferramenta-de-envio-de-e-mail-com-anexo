@@ -79,6 +79,6 @@ while x <= qtdd2:
     x += 1
     
     if x >= qtdd2:
-        print('Envios finalizados com sucesso!!!')
+        print('Envios finalizados com sucesso!!! ')
         print()
         break# Para/Finaliza o while
