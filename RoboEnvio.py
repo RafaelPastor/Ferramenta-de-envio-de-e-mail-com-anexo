@@ -25,6 +25,7 @@ while x <= qtdd2:
     nomePessoa = planilha['NOME'] [x]
     destino = planilha['E-MAIL*'] [x]
     anexo = planilha['NOME_ANEXO+EXTENSÃO*'] [x]
+    texto = planilha['MENSAGEM*'] [x]
 
     #Dados para conecxão com o servidor
     host = "smtp.gmail.com"
@@ -40,7 +41,7 @@ while x <= qtdd2:
 
 
     #Criado o e-mail
-    corpo = "Corpo do E-mail"
+    corpo = f"{texto}"
 
     email_msg = MIMEMultipart()
     email_msg['From'] = login
