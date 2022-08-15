@@ -8,23 +8,25 @@ import pandas as pd
 from email import encoders
 
 
-qtdd = int(input('Ultima celula preenchida a ser enviada: '))
+qtdd = int(input('Última celula preenchida a ser enviada: '))
 
 print()
 print('Iniciado envio')
 
 x = 0
+qtdd2 = qtdd - 1
 
-while x <= qtdd:
+while x <= qtdd2:
     
     #Abrindo planilha
     planilha = pd.read_excel("Envio.xlsx")
 
-
+    #Obtendo dados para envio
     nomePessoa = planilha['NOME'] [x]
     destino = planilha['E-MAIL*'] [x]
     anexo = planilha['NOME_ANEXO+EXTENSÃO*'] [x]
 
+    #Dados para conecxão com o servidor
     host = "smtp.gmail.com"
     port = "587"
     login = 'Caixa postal que realizara o envio'
@@ -37,7 +39,7 @@ while x <= qtdd:
     server.login(login,senha)
 
 
-    #E-mail
+    #Criado o e-mail
     corpo = "Corpo do E-mail"
 
     email_msg = MIMEMultipart()
@@ -75,5 +77,7 @@ while x <= qtdd:
     #Incrementação
     x += 1
     
-    if x >= qtdd:
+    if x >= qtdd2:
+        print('Envios finalizados com sucesso!!!')
+        print()
         break# Para/Finaliza o while
