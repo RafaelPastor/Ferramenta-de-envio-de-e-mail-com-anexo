@@ -40,7 +40,7 @@ while x <= qtdd2:
 
 
     #Criado o e-mail
-    corpo = "Corpo do e-mail"
+    corpo = "Corpo do E-mail"
 
     email_msg = MIMEMultipart()
     email_msg['From'] = login
