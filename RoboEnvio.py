@@ -14,7 +14,7 @@ print()
 print('Iniciado envio')
 
 x = 0
-qtdd2 = qtdd - 1
+qtdd2 = qtdd - 1 
 
 while x <= qtdd2:
     
